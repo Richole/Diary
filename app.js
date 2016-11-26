@@ -1,17 +1,13 @@
-var express = require('express');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var ejs = require('./modals/ejs');
-var log = require('./modals/log');
-var domain = require('./modals/domain');
-
-var routes = require('./routes/routes');
-
-var app = express();
+var express = require('express'),
+    logger = require('morgan'),
+    path = require('path'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    ejs = require('./modals/ejs'),
+    log = require('./modals/log'),
+    domain = require('./modals/domain'),
+    routes = require('./routes/routes'),
+    app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
