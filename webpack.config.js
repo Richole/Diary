@@ -7,12 +7,16 @@ var webpack = require('webpack'),
 module.exports = {
     //页面入口文件配置
     entry: {
-        app: './public/javascripts/main.js'
+        app: './public/javascripts/main.js',
+        demo: './public/javascripts/demo/index.js'
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
 
     //入口文件输出配置
     output: {
-        filename: 'app.js',
+        filename: '[name].js',
         path: './public/javascripts/output'
     },
     module: {
@@ -22,19 +26,17 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
             },
-
-            {
-                test: /\.js$/,
-                loader: 'jsx-loader?harmony'
-            },
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192'
             },
             {
-                test: /\.js|jsx$/,
-                loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0'],
-                include: path.join(__dirname, 'js')
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015', 'stage-0']
+                }
             }
         ]
     },
