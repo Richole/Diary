@@ -41,6 +41,8 @@ module.exports = {
         ]
     },
 
+    devtool: 'source-map',
+
     //其它解决方案配置
     resolve: {
         extensions: ['', '.js', '.json', '.scss']
@@ -48,7 +50,5 @@ module.exports = {
 
     //插件项
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
     ]
 };
